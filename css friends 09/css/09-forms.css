@@ -1,1 +1,25 @@
 /* PHASE 9: Forms */
+.content-main{
+  display: flex;
+}
+
+.Post-container{
+  background-color: #eee;
+  border: 1px solid #ccc;
+  margin-left: 20px;
+  padding: 20px;
+  width: 80%;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+}
+
+.input label{
+  margin: 5px;
+}
+
+.form-input {
+  margin-bottom: 15px;
+}
