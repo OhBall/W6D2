@@ -9,10 +9,14 @@ class View {
   }
 
   bindEvents() {
-    $('ul').on('click', 'li', (e) => {
-      const $square = $(e.currentTarget);
-      this.makeMove($square);
-    });
+    if (this.game.isOver()) {
+      $('ul').off('click','li');
+    }else{
+      $('ul').on('click', 'li', (e) => {
+        const $square = $(e.currentTarget);
+        this.makeMove($square);
+      });
+    }
   }
 
   makeMove($square) {
@@ -34,6 +38,7 @@ class View {
       } else {
         $('body').append(`<h2>It's a draw!</h2>`);
       }
+      this.bindEvents();
     }
   }
 
@@ -45,10 +50,10 @@ class View {
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
       $(".board").append($square);
     }
-    
+
   }
-  
-  
+
+
 }
 
 module.exports = View;
